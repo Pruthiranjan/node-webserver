@@ -5,6 +5,7 @@ const geocode=require('./utils/geocode')
 const forecast=require('./utils/forecast')
 const { error } = require('console')
 const app = express()
+const port = process.env.PORT || 3000
 const viewspath = path.join(__dirname, '../templetes/views')
 const partialspath = path.join(__dirname, '../templetes/partials')
 app.use(express.static(path.join(__dirname, '../public')))
@@ -81,6 +82,6 @@ app.get('*',(req,res)=>{
         errorMsg:'Page not Found'
     })
 })
-app.listen(3000, ()=>{
-    console.log('sever is runnig on port 3000.')
+app.listen(port, ()=>{
+    console.log('sever is runnig on port' + port)
 })
